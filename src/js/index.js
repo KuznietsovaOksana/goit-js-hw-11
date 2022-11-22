@@ -13,7 +13,6 @@ const loadMoreBtnEl = document.querySelector('.load-more');
 const pixabayApi = new PixabayApi();
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
   captionDelay: 250,
 });
 
