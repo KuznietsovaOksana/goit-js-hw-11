@@ -98,21 +98,6 @@ async function onLoadMoreBtnClick(event) {
     if (data.hits.length === pixabayApi.page) {
       loadMoreBtnEl.classList.add('is-hidden');
     }
-
-    if (pixabayApi.page === Math.ceil(data.totalHits / pixabayApi.per_page)) {
-      galleryEl.innerHTML = createGalleryCards(data.hits);
-      loadMoreBtnEl.classList.add('is-hidden');
-      lightbox.refresh();
-
-      Notiflix.Notify.warning(
-        "We're sorry, but you've reached the end of search results.",
-        {
-          clickToClose: true,
-          timeout: 2000,
-        }
-      );
-      return;
-    }
   } catch (err) {
     console.log(err);
   }
