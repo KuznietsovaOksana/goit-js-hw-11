@@ -27,7 +27,7 @@ async function onSearchFormSubmit(event) {
   try {
     if (pixabayApi.searchQuery === '') {
       galleryEl.innerHTML = '';
-      observer.observe(targetEl);
+      observer.unobserve(targetEl);
 
       Notiflix.Notify.info(
         'Please, type the name of images you would like to find.',
