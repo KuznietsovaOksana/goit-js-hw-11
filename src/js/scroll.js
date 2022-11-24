@@ -25,11 +25,9 @@ async function onSearchFormSubmit(event) {
   pixabayApi.searchQuery = event.target.elements.searchQuery.value.trim();
 
   try {
-    const response = await pixabayApi.fetchPhotos();
-    const { data } = response;
-
     if (pixabayApi.searchQuery === '') {
       galleryEl.innerHTML = '';
+      observer.observe(targetEl);
 
       Notiflix.Notify.info(
         'Please, type the name of images you would like to find.',
@@ -40,6 +38,9 @@ async function onSearchFormSubmit(event) {
       );
       return;
     }
+
+    const response = await pixabayApi.fetchPhotos();
+    const { data } = response;
 
     if (data.hits.length === 0) {
       galleryEl.innerHTML = '';
